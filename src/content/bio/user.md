@@ -1,6 +1,6 @@
 ---
-name: User Userson
-avatar: /uifaces-abstract.jpg
+name: Gravel Alves
+avatar: /profile-pic.jpg
 ---
 
-A user of the Astro LTree theme.
+Mais um atleta amador, fazendo videos sobre ciclismo gravel e corridas de rua! 🚴🏻🏃🏻💪🏻
