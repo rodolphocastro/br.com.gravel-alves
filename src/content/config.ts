@@ -37,6 +37,8 @@ const socialsCollection = defineCollection({
           "whatsapp",
           "telegram",
           "email",
+          "strava",
+          "komoot"
         ]),
       )
       .length(1),
