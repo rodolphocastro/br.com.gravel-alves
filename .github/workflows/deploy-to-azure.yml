@@ -24,11 +24,11 @@ jobs:
       run: npm run astro build
 
     - name: Deploy to Azure
-      uses: azure/CLI@v2
+      uses: azure/static-web-apps-deploy@v1
       with:
-        azcliversion: latest
-        inlineScript: |
-          az storage blob upload-batch --account-name gravelalvesstorage --source ./dist --destination '$web' --type block
-      env:
-        AZURE_STORAGE_ACCOUNT: gravelalvesstorage
-        AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
+        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        action: "upload"
+        skip_app_build: true
+        app_location: "./dist"
+        output_location: ""
