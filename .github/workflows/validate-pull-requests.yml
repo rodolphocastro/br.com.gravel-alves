@@ -26,10 +26,17 @@ jobs:
     - name: Build the project
       run: npm run astro build
 
-    - name: Comment PR
+    - name: Comment PR on failure
       if: ${{ failure() }}
       uses: thollander/actions-comment-pull-request@main
       with:
-        message: 'Build failed. Please check the logs for more details.'
+        message: '❌ Build failed. Please check the logs for more details ❌'
+        comment_tag: 'build_status'
+
+    - name: Comment PR on success
+      if: ${{ success() }}
+      uses: thollander/actions-comment-pull-request@main
+      with:
+        message: '✅ Build successful ✅'
         comment_tag: 'build_status'
 
