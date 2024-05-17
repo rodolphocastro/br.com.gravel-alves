@@ -1,0 +1,44 @@
+name: Validate Pull Requests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    permissions:
+      pull-requests: write
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: latest
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Check the project
+      run: npm run astro check
+
+    - name: Build the project
+      run: npm run astro build
+
+    - name: Comment PR on failure
+      if: ${{ failure() }}
+      uses: thollander/actions-comment-pull-request@main
+      with:
+        message: '❌ Build failed. Please check the logs for more details ❌'
+        comment_tag: 'build_status'
+
+    - name: Comment PR on success
+      if: ${{ success() }}
+      uses: thollander/actions-comment-pull-request@main
+      with:
+        message: '✅ Build successful ✅'
+        comment_tag: 'build_status'
+
