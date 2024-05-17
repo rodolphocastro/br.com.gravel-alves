@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+
+const bio = await getCollection("bio");
+const profile = bio[0];
+const { Content } = await profile.render();
+---
+
+<img src={profile.data.avatar} alt="avatar" class="w-32 h-32 rounded-full" />
+<h1 class="text-2xl mt-4">{profile.data.name}</h1>
+<section class="text-sm max-w-[400px] text-center">
+  <Content />
+</section>
+<nav>
+  <ul class="flex divide-x divide-blue-700 p-2">
+    <li class="text-lg">
+      <a class="block px-2 text-blue-500" href="/">Rotas</a>
+    </li>
+    <li class="text-lg">
+      <a class="block px-2 text-blue-500" href="/postlinks">Posts</a>
+    </li>
+  </ul>
+</nav>
