@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import Nav from "../components/Nav.astro";
 import SocialIcon from "../components/SocialIcon.astro";
 
 const bio = await getCollection("bio");
@@ -15,18 +16,11 @@ const profile = bio[0];
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>LTree | {profile.data.name}</title>
+    <title>{profile.data.name}</title>
   </head>
   <body>
     <main class="flex flex-col items-center justify-center p-4 pt-10">
-      <img src={profile.data.avatar} alt="avatar" class="w-32 h-32 rounded-full" />
-      <h1 class="text-2xl mt-4">{profile.data.name}</h1>
-      <nav>
-        <ul class="flex divide-x divide-blue-700 p-2">
-          <li class="text-lg"><a class="block px-2 text-blue-500" href="/">Links</a></li>
-          <li class="text-lg"><a class="block px-2 text-blue-500" href="/postlinks">Posts</a></li>
-        </ul>
-      </nav>
+      <Nav/>
       <ul class="flex gap-4 items-center justify-center flex-wrap pt-10">
         {
           socials.sort((a, b) => {
