@@ -20,8 +20,7 @@ const profile = bio[0];
   <body>
     <main class="flex flex-col items-center justify-center p-4 pt-10">
       <Nav />
-      <h2 class="text-l">Links Úteis</h2>
-      <ul class="flex flex-col gap-y-4 pt-10 min-w-[400px]">
+      <ul class="flex flex-col gap-y-4 py-2 min-w-[400px]">
         {
           links
             .sort((a, b) => {
@@ -34,7 +33,10 @@ const profile = bio[0];
               return 0;
             })
             .map((link) => (
-              <li class="border border-black border-2 w-full text-center p-4 text-xl font-semibold">
+              <li
+                class=" border-black border-2 w-full text-center p-4 text-xl font-semibold
+               hover:border-gray-400 hover:text-gray-400"
+              >
                 <a href={link.data.url} class="block">
                   {link.data.title}
                 </a>
