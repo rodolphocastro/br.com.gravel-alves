@@ -1,54 +1,30 @@
-# 🌳 LTree 🌳
+# Gravel-Alves.com.br
 
-LTree is a free and open-source theme for [Astro](https://astro.build). It's a result of exploring how to build a clone of Linkinbio and Linktree, rolled into one, using Astro. Blog post here -> https://darko.io/posts/linktree-and-linkinbio-clone-with-astro-and-tinacms.
+This repository contains the source code and contents for my gravel-related website where I share routes and useful links from my main social media accounts.
 
-### [[Demo here](https://ltree.darko.io)]
+## Getting started
 
-![image](https://github.com/DBozhinovski/astro-theme-ltree/assets/64415791/5b38139f-26f9-4da5-a4f9-cfb8d1c091e6)
+1. make sure you have the latest `npm` install and configured in your system
+1. run a `npm install` to restore dependencies
+1. once dependencies are restored start a development server with a `npm run dev`
+1. to create a production build run `npm run astro build` and copy the contents of the `dist/` folder over to a host
 
-![image](https://github.com/DBozhinovski/astro-theme-ltree/assets/64415791/4897e109-7312-4c40-8fdb-e2c8293731cc)
+### Recommendations
 
-## Quickstart
+If you are on VSCode consider using the extensions that are recommended within the [VSCode Extensions file](.vscode/extensions.json) once you open up your IDE.
 
-1. Run `npx degit https://github.com/DBozhinovski/astro-theme-ltree my-site-name` to get a "clean slate" copy of this repo.
-2. Run `npm install` inside the cloned directory to install dependencies.
-3. Customize and deploy!
+### Tech Stack
 
-Requires Node.js v18+.
+This website relies on [Astro Framework](https://astro.build) and Typescript for content processing and logic. The CSS is handled by [Tailwind CSS](https://tailwindcss.com).
 
-## Features
+### CI/CD Pipeline
 
-- A ready-to-use clone of Linkinbio and Linktree, hostable as a static site.
-- Optional TinaCMS integration for editing the site content.
-- Uses the Astro content collection API, which means you can edit the raw markdown files.
-- Lightweight, minimalistic, and easy to customize.
-- Tailwind for styling.
-- Dark & Light mode dynamically supported
+This project leverages GitHub Actions for CI/CD orchestration and Azure for deployments.
 
-### TinaCMS
+The CI pipeline runs on all pull-requests and can be found on [this file](.github/workflows/validate-pull-requests.yml). The CD pipeline runs only on master and can be found on [this file](.github/workflows/deploy-to-azure.yml).
 
-LTree comes with optional TinaCMS integration. It's already enabled by default in local mode (look at the `run` and `start` scripts in `package.json`).
-
-You can also enable it in production via Tina Cloud by following the instructions: https://tina.io/docs/tina-cloud/overview/. More on the integration and steps to enable it here: https://darko.io/posts/linktree-and-linkinbio-clone-with-astro-and-tinacms.
-
-## Development and customization notes
-
-### Pages and components
-
-The project has two pages - `index.astro` and `postlinks.astro`. The former is the Linktree clone, and the latter is the Linkinbio clone. Both pages follow a similar structure but render different mid-section contents.
-
-There is only one custom component - `src/components/SocialIcon.astro`. It's used to render the social icons in the social sections of both pages.
-
-### Styling
-
-The theme uses Tailwind for styling without any customizations. As there's not a lot of styling, it would be trivial to remove it if you'd go for vanilla CSS instead. The same goes for customization via Tailwind config - you can likely add any fonts or plugins and customize the colors to your liking.
-
-### Content
-
-If you opt-in for TinaCMS and would like to make some changes to the data model, you'd have to edit the schema in both `src/content/config.ts` and `src/tina/config.ts.` Otherwise, the theme is built to rely only on the Astro content collection API for reading the content.
+This project is deployed to an [Azure Static Web App](https://azure.microsoft.com/en-us/products/app-service/static) for the sake of simplicity. Then an Azure DNS record is created to redirect from the [domain apex](https://www.gravel-alves.com.br) to the dynamics created host name. 
 
 ## Credits and acknowledgments
 
-If you find this theme useful, please consider starring the repo, and sharing it.
-
-@leowilkin contributed to dark mode, and styling updates
+This project is using as its base on the [ltree](https://github.com/DBozhinovski/astro-theme-ltree) theme for Astro.
