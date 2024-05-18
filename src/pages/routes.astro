@@ -4,7 +4,7 @@ import Nav from "../components/Nav.astro";
 import SocialMedias from "../components/SocialMedias.astro";
 
 const bio = await getCollection("bio");
-const posts = await getCollection("posts");
+const routes = await getCollection("routes");
 
 const profile = bio[0];
 ---
@@ -23,28 +23,11 @@ const profile = bio[0];
       <Nav />
       <ul class="grid grid-cols-3 gap-1 pt-20 max-w-[640px] w-full">
         {
-          posts
-            .sort((a, b) => {
-              if (a.data.date < b.data.date) {
-                return 1;
-              }
-              if (a.data.date > b.data.date) {
-                return -1;
-              }
-
-              return 0;
-            })
-            .map((p) => (
-              <li>
-                <a href={p.data.url}>
-                  <img
-                    src={p.data.image}
-                    alt={p.data.title}
-                    class="aspect-square col-span-1 object-cover"
-                  />
-                </a>
-              </li>
-            ))
+          routes.map((p) => (
+            <li>
+              <p>{p.data.title}</p>
+            </li>
+          ))
         }
       </ul>
       <SocialMedias />

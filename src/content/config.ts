@@ -53,12 +53,13 @@ const linksCollection = defineCollection({
   }),
 });
 
-const postsCollection = defineCollection({
+const routesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    url: z.string(),
-    image: z.string(),
+    rating: z.enum(["Iniciante", "Intermediário", "Avançado", "Desafio", "Épico"]),
+    stravaUrl: z.string(),
+    komootUrl: z.string(),
     date: z.date(),
   }),
 });
@@ -67,5 +68,5 @@ export const collections = {
   socials: socialsCollection,
   bio: bioCollection,
   links: linksCollection,
-  posts: postsCollection,
+  routes: routesCollection,
 };
