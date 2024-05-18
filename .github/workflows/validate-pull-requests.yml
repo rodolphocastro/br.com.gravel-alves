@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # needed due to sonarqube analysis
 
     - name: Use Node.js
       uses: actions/setup-node@v4
@@ -27,6 +29,12 @@ jobs:
 
     - name: Build the project
       run: npm run astro build
+
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     - name: Comment PR on failure
       if: ${{ failure() }}
