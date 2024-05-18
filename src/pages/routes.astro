@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Nav from "../components/Nav.astro";
 import SocialMedias from "../components/SocialMedias.astro";
+import RouteCard from "../components/RouteCard.astro";
 
 const bio = await getCollection("bio");
 const routes = await getCollection("routes");
@@ -21,15 +22,21 @@ const profile = bio[0];
   <body>
     <main class="flex flex-col items-center justify-center p-4 pt-10">
       <Nav />
-      <ul class="grid grid-cols-3 gap-1 pt-20 max-w-[640px] w-full">
+      <div class="grid grid-cols-2 gap-6 max-w-[640px] w-full">
         {
           routes.map((p) => (
-            <li>
-              <p>{p.data.title}</p>
-            </li>
+            <RouteCard
+              title={p.data.title}
+              description={p.data.description}
+              rating={p.data.rating}
+              stravaUrl={p.data.stravaUrl}
+              komootUrl={p.data.komootUrl}
+              km={p.data.km}
+              altGain={p.data.altGain}
+            />
           ))
         }
-      </ul>
+      </div>
       <SocialMedias />
     </main>
   </body>

@@ -56,6 +56,8 @@ const linksCollection = defineCollection({
 const routesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
+    km: z.number(),
+    altGain: z.number(),
     description: z.string(),
     rating: z.enum(["Iniciante", "Intermediário", "Avançado", "Desafio", "Épico"]),
     stravaUrl: z.string(),
