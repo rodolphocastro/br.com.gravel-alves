@@ -7,7 +7,9 @@ const routes = await getCollection("routes");
 ---
 
 <SiteLayout>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[640px] w-full">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[640px] w-full px-4 py-2"
+  >
     {
       routes.map((p) => (
         <RouteCard

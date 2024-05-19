@@ -13,13 +13,21 @@ const profile = bio[0];
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Links e Rotas de ciclismo compartilhadas por @gravel.alves"
+    />
+    <meta
+      name="keywords"
+      content="gravel, gravelbike, ciclismo, @gravel.alves, linksUteis"
+    />
     <title>{profile.data.name}</title>
   </head>
-  <body>
-    <main class="flex flex-col items-center justify-center p-4 pt-10">
-      <Nav />
+  <body class="flex flex-col items-center justify-center p-4 pt-10">
+    <Nav />
+    <main>
       <slot />
-      <SocialMedias />
     </main>
+    <SocialMedias />
   </body>
 </html>
