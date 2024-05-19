@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import Nav from "../components/Nav.astro";
+import SocialMedias from "../components/SocialMedias.astro";
+import SchemaMarkup from "../components/SchemaMarkup.astro";
+
+const bio = await getCollection("bio");
+const profile = bio[0];
+const metaDescription =
+  "Links e Rotas de ciclismo compartilhadas por @gravel.alves";
+const prodUrl = "https://www.gravel-alves.com.br/";
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={metaDescription} />
+    <meta
+      name="keywords"
+      content="gravel, gravelbike, ciclismo, @gravel.alves, linksUteis"
+    />
+    <title>{profile.data.name}</title>
+
+    <!-- OpenGraph meta tags -->
+    <meta property="og:title" content={profile.data.name} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={prodUrl} />
+    <meta property="og:image" content="/profile-pic.jpg" />
+
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={profile.data.name} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content="/profile-pic.jpg" />
+
+    <!-- Schema Markup -->
+    <SchemaMarkup />
+  </head>
+  <body class="flex flex-col items-center justify-center p-4 pt-10">
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <SocialMedias />
+  </body>
+</html>
