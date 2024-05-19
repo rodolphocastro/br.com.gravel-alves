@@ -4,7 +4,10 @@ import SocialIcon from "./SocialIcon.astro";
 
 const socials = await getCollection("socials");
 ---
-<h2 class="border-t-2 border-black mt-4 text-lg mb-2">Redes Sociais</h2>
+<h2 class="border-t-2 border-black mt-4 text-xl">Redes Sociais</h2>
+<section class="text-sm max-w-[400px] text-center mb-4">
+  <p>Me siga nas redes sociais 👇🏻</p>
+</section>
 <ul class="flex gap-4 items-center justify-center flex-wrap">
   {
     socials.sort((a, b) => {
