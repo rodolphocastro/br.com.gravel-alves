@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Nav from "../components/Nav.astro";
 import SocialMedias from "../components/SocialMedias.astro";
+import LinkItem from "../components/LinkItem.astro";
 
 const bio = await getCollection("bio");
 const links = await getCollection("links");
@@ -33,14 +34,7 @@ const profile = bio[0];
               return 0;
             })
             .map((link) => (
-              <li
-                class=" border-black border-2 w-full text-center p-4 text-xl font-semibold
-               hover:border-gray-400 hover:text-gray-400"
-              >
-                <a href={link.data.url} class="block">
-                  {link.data.title}
-                </a>
-              </li>
+              <LinkItem linkTitle={link.data.title} linkUrl={link.data.url} />
             ))
         }
       </ul>

@@ -1,0 +1,12 @@
+---
+const { linkUrl, linkTitle } = Astro.props;
+---
+
+<li
+  class="border-black border-2 w-full text-center p-4 text-xl font-semibold
+               hover:border-gray-400 hover:text-gray-400"
+>
+  <a href={linkUrl} class="block">
+    {linkTitle}
+  </a>
+</li>
