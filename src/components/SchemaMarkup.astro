@@ -1,0 +1,22 @@
+---
+const metaDescription =
+  "Links e Rotas de ciclismo compartilhadas por @gravel.alves";
+const prodUrl = "https://www.gravel-alves.com.br/";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "@gravel.alves",
+  url: prodUrl,
+  image: "/profile-pic.jpg",
+  description: metaDescription,
+  sameAs: [
+    "https://www.instagram.com/gravel.alves",
+    "https://www.strava.com/athletes/12345678",
+    "https://www.komoot.com/user/3226781421690",
+    "https://www.tiktok.com/@gravel.alves",
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
