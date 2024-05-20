@@ -11,17 +11,19 @@ const routes = await getCollection("routes");
     class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[640px] w-full px-4 py-2"
   >
     {
-      routes.map((p) => (
-        <RouteCard
-          title={p.data.title}
-          description={p.data.description}
-          rating={p.data.rating}
-          stravaUrl={p.data.stravaUrl}
-          komootUrl={p.data.komootUrl}
-          km={p.data.km}
-          altGain={p.data.altGain}
-        />
-      ))
+      routes
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+        .map((p) => (
+          <RouteCard
+            title={p.data.title}
+            description={p.data.description}
+            rating={p.data.rating}
+            stravaUrl={p.data.stravaUrl}
+            komootUrl={p.data.komootUrl}
+            km={p.data.km}
+            altGain={p.data.altGain}
+          />
+        ))
     }
   </div>
 </SiteLayout>
