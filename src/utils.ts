@@ -59,3 +59,17 @@ export function convertDifficultyToRating(reading: number) {
 
   return difficulties[reading];
 }
+
+/**
+ * Returns a Strava URL that allows for GPX download based on an existing Strava entry.
+ * @param stravaUrl a valid Strava url for a Route or an Activity
+ * @returns a new url with the route for GPX download
+ */
+export function generateGpxLinkForStrava(stravaUrl: string) {
+  // if there's already a trailing slash, remove it
+  if (stravaUrl.endsWith('/')) {
+    stravaUrl = stravaUrl.slice(0, -1);
+  }
+
+  return `${stravaUrl}/export_gpx`;
+}
