@@ -15,7 +15,7 @@ const socials = await getCollection("socials");
       socials
         .sort((a, b) => b.data.order - a.data.order)
         .map((social) => (
-          <SocialMediaItem url={social.data.url} icon={social.data.icon[0]} />
+          <SocialMediaItem url={social.data.url} icon={social.data.icon} />
         ))
     }
   </ul>
