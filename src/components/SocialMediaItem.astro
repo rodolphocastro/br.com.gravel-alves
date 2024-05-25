@@ -1,0 +1,11 @@
+---
+import SocialIcon from "./SocialIcon.astro";
+
+const { url, icon } = Astro.props;
+---
+
+<li class="border-black border-2 rounded-full">
+  <a href={url} class="block p-4">
+    <SocialIcon id={icon} />
+  </a>
+</li>
