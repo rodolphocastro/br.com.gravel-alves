@@ -1,6 +1,16 @@
 ---
 import { convertDifficultyToRating } from "../utils";
 
+interface Props {
+  title: string;
+  description: string;
+  rating: number;
+  stravaUrl: string;
+  komootUrl: string;
+  km: number;
+  altGain: number;
+}
+
 const { title, description, rating, stravaUrl, komootUrl, km, altGain } =
   Astro.props;
 ---
