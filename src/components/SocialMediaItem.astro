@@ -1,9 +1,10 @@
 ---
+import type { SocialMedia } from "../utils";
 import SocialIcon from "./SocialIcon.astro";
 
 interface Props {
   url: string;
-  icon: string;
+  icon: SocialMedia;
 }
 
 const { url, icon } = Astro.props;
@@ -11,6 +12,6 @@ const { url, icon } = Astro.props;
 
 <li class="border-black border-2 rounded-full">
   <a href={url} class="block p-4">
-    <SocialIcon id={icon as any} />
+    <SocialIcon id={icon} />
   </a>
 </li>
