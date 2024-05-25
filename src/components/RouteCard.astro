@@ -1,4 +1,6 @@
 ---
+import { convertDifficultyToRating } from "../utils";
+
 const { title, description, rating, stravaUrl, komootUrl, km, altGain } =
   Astro.props;
 ---
@@ -22,7 +24,7 @@ const { title, description, rating, stravaUrl, komootUrl, km, altGain } =
       <p
         class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
       >
-        👀 {rating}
+        👀 {convertDifficultyToRating(rating)}
       </p>
     </div>
     <p class="text-gray-700 text-base mb-4">

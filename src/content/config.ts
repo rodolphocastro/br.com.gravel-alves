@@ -59,7 +59,7 @@ const routesCollection = defineCollection({
     km: z.number(),
     altGain: z.number(),
     description: z.string(),
-    rating: z.enum(["Iniciante", "Intermediário", "Avançado", "Desafio", "Épico"]),
+    rating: z.number(),
     stravaUrl: z.string(),
     komootUrl: z.string(),
     date: z.date(),
