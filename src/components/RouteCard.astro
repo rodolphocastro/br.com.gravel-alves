@@ -1,5 +1,5 @@
 ---
-import { convertDifficultyToRating } from "../utils";
+import { convertDifficultyToRating, generateGpxLinkForStrava } from "../utils";
 
 interface Props {
   title: string;
@@ -40,20 +40,30 @@ const { title, description, rating, stravaUrl, komootUrl, km, altGain } =
     <p class="text-gray-700 text-base mb-4">
       {description}
     </p>
-    <div class="flex space-x-2 text-sm">
+    <div class="flex flex-wrap items-center justify-center space-y-2 text-sm">
       <a
         href={stravaUrl}
         target="_blank"
+        rel="noopener noreferrer"
         class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
       >
-        GPX - Strava
+        Ver no Strava
+      </a>
+      <a
+        href={generateGpxLinkForStrava(stravaUrl)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Baixar rota Strava
       </a>
       <a
         href={komootUrl}
         target="_blank"
+        rel="noopener noreferrer"
         class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
       >
-        GPX - Komoot
+        Ver no Komoot
       </a>
     </div>
   </div>
