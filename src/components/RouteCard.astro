@@ -40,30 +40,32 @@ const { title, description, rating, stravaUrl, komootUrl, km, altGain } =
     <p class="text-gray-700 text-base mb-4">
       {description}
     </p>
-    <div class="flex flex-wrap items-center justify-center space-y-2 text-sm">
-      <a
-        href={stravaUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
-      >
-        Ver no Strava
-      </a>
+    <div
+      class="flex flex-col items-center justify-center text-center space-y-2 text-sm border-black border-t-2 pt-2"
+    >
       <a
         href={generateGpxLinkForStrava(stravaUrl)}
         target="_blank"
         rel="noopener noreferrer"
-        class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+        class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded w-full"
       >
-        Baixar rota Strava
+        Baixar GPX (Strava)
+      </a>
+      <a
+        href={stravaUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="border-orange-500 hover:border-orange-700 text-orange-500 hover:text-orange-700 font-bold py-2 px-4 rounded w-full border-2"
+      >
+        Visualizar (Strava)
       </a>
       <a
         href={komootUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        class="border-green-500 hover:border-green-700 text-green-500 hover:text-green-700 font-bold py-2 px-4 rounded w-full border-2"
       >
-        Ver no Komoot
+        Visualizar (Komoot)
       </a>
     </div>
   </div>
