@@ -34,6 +34,7 @@ const routesCollection = defineCollection({
     rating: z.number(),
     stravaUrl: z.string(),
     komootUrl: z.string(),
+    gpxUrl: z.string(),
     date: z.date(),
   }),
 });
