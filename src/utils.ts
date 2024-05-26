@@ -73,3 +73,10 @@ export function generateGpxLinkForStrava(stravaUrl: string) {
 
   return `${stravaUrl}/export_gpx`;
 }
+
+/**
+ * Takes in the name of a GPX file, hosted within the public/gpx directory, and returns the URL to download it.
+ */
+export function getGpxUrl(gpxFileName: string): string {
+  return `/gpx/${gpxFileName}`;
+}

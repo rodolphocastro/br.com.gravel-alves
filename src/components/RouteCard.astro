@@ -1,5 +1,9 @@
 ---
-import { convertDifficultyToRating, generateGpxLinkForStrava } from "../utils";
+import {
+  convertDifficultyToRating,
+  generateGpxLinkForStrava,
+  getGpxUrl,
+} from "../utils";
 
 interface Props {
   title: string;
@@ -7,12 +11,21 @@ interface Props {
   rating: number;
   stravaUrl: string;
   komootUrl: string;
+  gpxFile: string;
   km: number;
   altGain: number;
 }
 
-const { title, description, rating, stravaUrl, komootUrl, km, altGain } =
-  Astro.props;
+const {
+  title,
+  description,
+  rating,
+  stravaUrl,
+  komootUrl,
+  km,
+  altGain,
+  gpxFile,
+} = Astro.props;
 ---
 
 <article
@@ -49,6 +62,14 @@ const { title, description, rating, stravaUrl, komootUrl, km, altGain } =
     <footer
       class="flex flex-col items-center justify-center text-center space-y-2 text-sm border-black border-t-2 pt-2"
     >
+      <a
+        href={getGpxUrl(gpxFile)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full"
+      >
+        Baixar GPX
+      </a>
       <a
         href={generateGpxLinkForStrava(stravaUrl)}
         target="_blank"
