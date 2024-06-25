@@ -21,3 +21,7 @@ pnpm-debug.log*
 .DS_Store
 
 node_modules
+
+#vitest
+coverage/
+sonar-report.xml
