@@ -30,6 +30,9 @@ jobs:
     - name: Build the project
       run: npm run astro build
 
+    - name: Run tests with Coverage
+      run: npm run coverage
+
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
       env:

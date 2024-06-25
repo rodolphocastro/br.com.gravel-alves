@@ -14,6 +14,7 @@ export default getViteConfig({
     // Vitest configuration options
     coverage: {
       include: ['src/**/*.ts'],
+      reporter: ['text', 'lcov'],
     }
   },
 });
