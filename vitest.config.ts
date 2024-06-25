@@ -15,6 +15,9 @@ export default getViteConfig({
     coverage: {
       include: ['src/**/*.ts'],
       reporter: ['text', 'lcov'],
-    }
+    },
+    reporters: [
+      ['vitest-sonar-reporter', { outputFile: 'sonar-report.xml' }]
+    ]
   },
 });
