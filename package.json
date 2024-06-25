@@ -22,7 +22,7 @@
     "vitest": "^1.6.0"
   },
   "devDependencies": {
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.14.8",
     "@vitest/coverage-v8": "^1.6.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
