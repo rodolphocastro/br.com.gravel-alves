@@ -1,7 +1,7 @@
 /**
  * Difficulties for cycling routes, mapping from a number to a human-readable string.
  */
-const difficulties: { [key: number]: string } = {
+export const difficulties: { [key: number]: string } = {
   1: "Iniciante",
   2: "Intermediário",
   3: "Avançado",
