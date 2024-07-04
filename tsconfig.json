@@ -4,5 +4,7 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js"
   },
-  "exclude": ["public/**"]
+  "exclude": [
+    "public/**"
+  ]
 }

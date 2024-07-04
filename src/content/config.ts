@@ -39,9 +39,22 @@ const routesCollection = defineCollection({
   }),
 });
 
+/**
+ * Collection with content related to the cycling support totem project.
+ */
+const totemCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    order: z.number(),
+    youTubeUrl: z.optional(z.string().url()),
+    instagramUrl: z.optional(z.string().url()),
+  }),
+});
+
 export const collections = {
   socials: socialsCollection,
   bio: bioCollection,
   links: linksCollection,
   routes: routesCollection,
+  supportTotem: totemCollection,
 };

@@ -1,0 +1,104 @@
+---
+import { featureFlags } from "../utils";
+interface Props {
+  title: string;
+  contentId: string;
+  youTubeUrl?: string;
+  instagramUrl?: string;
+  renderFunction: Promise<any>;
+}
+const { title, contentId, instagramUrl, youTubeUrl, renderFunction } =
+  Astro.props;
+
+const toggleElementId = `toggle-${contentId}`;
+const contentElementId = `content-${contentId}`;
+const enableInstagramButton =
+  instagramUrl &&
+  typeof instagramUrl === "string" &&
+  instagramUrl.trim() !== "";
+const enableYouTubeButton =
+  youTubeUrl && typeof youTubeUrl === "string" && youTubeUrl.trim() !== "";
+const { Content } = await renderFunction;
+---
+
+<style>
+  .expandable-content {
+    display: none;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .expandable-content.open {
+    display: block;
+    max-height: 300vh; /* Large enough to show the content */
+  }
+</style>
+
+<li
+  class="border-black border-2 w-full text-center p-4 text-xl font-semibold max-w-screen-sm"
+>
+  <article>
+    <header>
+      <a
+        role="button"
+        id={toggleElementId}
+        class="block"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {title}
+      </a>
+    </header>
+    <section
+      id={contentElementId}
+      class="expandable-content flex flex-row space-y-4 border-t-black border-t-2 text-sm"
+    >
+      <p class="pt-2">
+        {
+          featureFlags.showTotem ? (
+            <Content />
+          ) : (
+            "lorem ipsum dolor sit amet (texto temporário)"
+          )
+        }
+      </p>
+      <footer
+        class="flex flex-col items-center justify-center text-center space-y-2 text-sm pt-2"
+      >
+        {
+          enableInstagramButton && (
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border-pink-500 hover:border-pink-700 text-pink-500 hover:text-pink-700 font-bold py-2 px-4 rounded w-full border-2"
+            >
+              Assistir no Instagram
+            </a>
+          )
+        }
+        {
+          enableYouTubeButton && (
+            <a
+              href="youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border-red-500 hover:border-red-700 text-red-500 hover:text-red-700 font-bold py-2 px-4 rounded w-full border-2"
+            >
+              Assistir no YouTube
+            </a>
+          )
+        }
+      </footer>
+    </section>
+  </article>
+</li>
+
+<script is:inline define:vars={{ contentElementId, toggleElementId }}>
+  /**
+   * Manipulates HTML elements to show/hide content based on a click event.
+   */
+  const element = document.getElementById(toggleElementId);
+  element?.addEventListener("click", () => {
+    document.getElementById(contentElementId)?.classList.toggle("open");
+  });
+</script>

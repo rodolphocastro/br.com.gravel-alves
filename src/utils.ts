@@ -80,3 +80,10 @@ export function generateGpxLinkForStrava(stravaUrl: string) {
 export function getGpxUrl(gpxFileName: string): string {
   return `/gpx/${gpxFileName}`;
 }
+
+/**
+ * Simple, static, implementation of feature flags.
+ */
+export const featureFlags = {
+  'showTotem': false,
+}
