@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string;
+  contentId: string;
+}
+const { title, contentId } = Astro.props;
+
+const toggleElementId = `toggle-${contentId}`;
+const contentElementId = `content-${contentId}`;
+---
+
+<style>
+  .expandable-content {
+    display: none;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .expandable-content.open {
+    display: block;
+    max-height: 300vh; /* Large enough to show the content */
+  }
+</style>
+
+<li
+  class="border-black border-2 w-full text-center p-4 text-xl font-semibold
+               hover:border-gray-400 hover:text-gray-400 max-w-screen-sm"
+>
+  <a role="button" id={toggleElementId} class="block">
+    {title}
+  </a>
+  <p
+    id={contentElementId}
+    class="expandable-content mt-2 border-t-black border-t-2"
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+    blanditiis veniam reiciendis soluta ratione. Dicta, laboriosam saepe nemo,
+    consequuntur quibusdam illum enim esse perferendis nostrum, nesciunt porro
+    nihil molestiae assumenda?
+  </p>
+</li>
+
+<script is:inline define:vars={{ contentElementId, toggleElementId }}>
+  /**
+   * Manipulates HTML elements to show/hide content based on a click event.
+   */
+  const element = document.getElementById(toggleElementId);
+  element?.addEventListener("click", () => {
+    document.getElementById(contentElementId)?.classList.toggle("open");
+  });
+</script>

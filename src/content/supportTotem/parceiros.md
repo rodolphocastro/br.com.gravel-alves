@@ -1,6 +1,6 @@
 ---
 title: Parceiros do Projeto
-order: 2
+order: 1
 ---
 
 A iniciativa é apoiada por:

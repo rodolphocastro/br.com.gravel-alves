@@ -1,6 +1,6 @@
 ---
 title: Ferramentas no Totem
-order: 1
+order: 2
 ---
 
 O totem de apoio ao ciclista conta com as seguintes ferramentas para você utilizar:

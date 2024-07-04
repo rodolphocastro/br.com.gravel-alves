@@ -1,5 +1,5 @@
 ---
-title: O que é o totem de apoio?
+title: Sobre o Projeto
 order: 0
 ---
 
