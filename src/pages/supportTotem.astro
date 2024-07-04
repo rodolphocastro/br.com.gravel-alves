@@ -1,7 +1,7 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
-import LinkItem from "../components/ExpandableButton.astro";
+import TotemInfoItem from "../components/ExpandableButton.astro";
 
 const allTotemInfo = await getCollection("supportTotem");
 ---
@@ -21,12 +21,13 @@ const allTotemInfo = await getCollection("supportTotem");
           }
           return 0;
         })
-        .map((link) => (
-          <LinkItem
-            title={link.data.title}
-            contentId={link.data.order.toString()}
-            youTubeUrl={link.data.youTubeUrl}
-            instagramUrl={link.data.instagramUrl}
+        .map((totemInfo) => (
+          <TotemInfoItem
+            title={totemInfo.data.title}
+            contentId={totemInfo.data.order.toString()}
+            youTubeUrl={totemInfo.data.youTubeUrl}
+            instagramUrl={totemInfo.data.instagramUrl}
+            renderFunction={totemInfo.render()}
           />
         ))
     }

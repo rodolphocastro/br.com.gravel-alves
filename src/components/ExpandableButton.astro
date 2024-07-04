@@ -4,8 +4,10 @@ interface Props {
   contentId: string;
   youTubeUrl?: string;
   instagramUrl?: string;
+  renderFunction: Promise<any>;
 }
-const { title, contentId, instagramUrl, youTubeUrl } = Astro.props;
+const { title, contentId, instagramUrl, youTubeUrl, renderFunction } =
+  Astro.props;
 
 const toggleElementId = `toggle-${contentId}`;
 const contentElementId = `content-${contentId}`;
@@ -15,6 +17,7 @@ const enableInstagramButton =
   instagramUrl.trim() !== "";
 const enableYouTubeButton =
   youTubeUrl && typeof youTubeUrl === "string" && youTubeUrl.trim() !== "";
+const { Content } = await renderFunction;
 ---
 
 <style>
@@ -49,10 +52,7 @@ const enableYouTubeButton =
       class="expandable-content flex flex-row space-y-4 border-t-black border-t-2 text-sm"
     >
       <p class="pt-2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-        blanditiis veniam reiciendis soluta ratione. Dicta, laboriosam saepe
-        nemo, consequuntur quibusdam illum enim esse perferendis nostrum,
-        nesciunt porro nihil molestiae assumenda?
+        <Content />
       </p>
       <footer
         class="flex flex-col items-center justify-center text-center space-y-2 text-sm pt-2"
