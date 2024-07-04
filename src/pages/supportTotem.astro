@@ -1,12 +1,20 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { getCollection } from "astro:content";
-import TotemInfoItem from "../components/ExpandableButton.astro";
+import TotemInfoItem from "../components/SupportTotemItem.astro";
+import { featureFlags } from "../utils.ts";
 
 const allTotemInfo = await getCollection("supportTotem");
 ---
 
 <SiteLayout>
+  {
+    !featureFlags.showTotem && (
+      <h1 class="w-full bg-yellow-200 text-center py-4 text-yellow-800">
+        🔨 página em desenvolvimento 🔨
+      </h1>
+    )
+  }
   <ul
     class="flex flex-col justify-center gap-y-4 py-2 min-w-[400px] sm:px-0 px-4"
   >
