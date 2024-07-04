@@ -3,4 +3,4 @@ title: O que é o totem de apoio?
 order: 0
 ---
 
-O projeto Totems de Apoio ao Ciclista, em parceria com comércios locais, Edson Lives, Gravel Alves e Marques Engenharia, visa incentivar o uso das rotas locais por ciclistas, oferecendo totens gratuitos com ferramentas para manutenção de bicicletas, pontos de hidratação e dicas da região, promovendo um estilo de vida saudável e fortalecendo o comércio local.
+O projeto Totems de Apoio ao Ciclista, em parceria com comércios locais, Edson Lives, Gravel Alves, visa incentivar o uso das rotas locais por ciclistas, oferecendo totens gratuitos com ferramentas para manutenção de bicicletas e dicas da região, promovendo um estilo de vida saudável e fortalecendo o comércio local.
