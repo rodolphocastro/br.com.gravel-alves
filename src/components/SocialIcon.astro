@@ -1,12 +1,33 @@
 ---
-import { SocialMedia } from "../utils";
-
 interface Props {
-  id: SocialMedia;
+  id:
+    | "github"
+    | "twitter"
+    | "linkedin"
+    | "instagram"
+    | "facebook"
+    | "youtube"
+    | "twitch"
+    | "tiktok"
+    | "snapchat"
+    | "reddit"
+    | "pinterest"
+    | "medium"
+    | "dev"
+    | "dribbble"
+    | "behance"
+    | "codepen"
+    | "producthunt"
+    | "discord"
+    | "slack"
+    | "whatsapp"
+    | "telegram"
+    | "strava"
+    | "komoot"
+    | "email";
 }
 
-const { id: iconId } = Astro.props;
-const id = iconId.toString();
+const { id } = Astro.props;
 ---
 
 {

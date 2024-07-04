@@ -1,5 +1,4 @@
 import { z, defineCollection } from "astro:content";
-import { SocialMedia } from "../utils";
 
 const bioCollection = defineCollection({
   schema: z.object({
@@ -13,7 +12,36 @@ const socialsCollection = defineCollection({
     title: z.string(),
     url: z.string(),
     order: z.number(),
-    icon: z.nativeEnum(SocialMedia),
+    icon: z
+      .array(
+        z.enum([
+          "github",
+          "twitter",
+          "linkedin",
+          "instagram",
+          "facebook",
+          "youtube",
+          "twitch",
+          "tiktok",
+          "snapchat",
+          "reddit",
+          "pinterest",
+          "medium",
+          "dev",
+          "dribbble",
+          "behance",
+          "codepen",
+          "producthunt",
+          "discord",
+          "slack",
+          "whatsapp",
+          "telegram",
+          "email",
+          "strava",
+          "komoot"
+        ]),
+      )
+      .length(1),
   }),
 });
 

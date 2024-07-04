@@ -11,36 +11,6 @@ export const difficulties: { [key: number]: string } = {
 };
 
 /**
- * Social Medias that have icons supported by the portal.
- */
-export enum SocialMedia {
-  github = "github",
-  twitter = "twitter",
-  linkedin = "linkedin",
-  instagram = "instagram",
-  facebook = "facebook",
-  youtube = "youtube",
-  twitch = "twitch",
-  tiktok = "tiktok",
-  snapchat = "snapchat",
-  reddit = "reddit",
-  pinterest = "pinterest",
-  medium = "medium",
-  dev = "dev",
-  dribbble = "dribbble",
-  behance = "behance",
-  codepen = "codepen",
-  producthunt = "producthunt",
-  discord = "discord",
-  slack = "slack",
-  whatsapp = "whatsapp",
-  telegram = "telegram",
-  strava = "strava",
-  komoot = "komoot",
-  email = "email"
-}
-
-/**
  * Converts a difficulty rating to a human-readable string
  * @param reading The difficulty rating, if null defaults to 1 and if outside range defaults to the closest value
  */
