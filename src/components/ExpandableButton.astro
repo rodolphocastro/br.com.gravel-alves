@@ -2,11 +2,19 @@
 interface Props {
   title: string;
   contentId: string;
+  youTubeUrl?: string;
+  instagramUrl?: string;
 }
-const { title, contentId } = Astro.props;
+const { title, contentId, instagramUrl, youTubeUrl } = Astro.props;
 
 const toggleElementId = `toggle-${contentId}`;
 const contentElementId = `content-${contentId}`;
+const enableInstagramButton =
+  instagramUrl &&
+  typeof instagramUrl === "string" &&
+  instagramUrl.trim() !== "";
+const enableYouTubeButton =
+  youTubeUrl && typeof youTubeUrl === "string" && youTubeUrl.trim() !== "";
 ---
 
 <style>
@@ -49,22 +57,30 @@ const contentElementId = `content-${contentId}`;
       <footer
         class="flex flex-col items-center justify-center text-center space-y-2 text-sm pt-2"
       >
-        <a
-          href="google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="border-pink-500 hover:border-pink-700 text-pink-500 hover:text-pink-700 font-bold py-2 px-4 rounded w-full border-2"
-        >
-          Assistir no Instagram
-        </a>
-        <a
-          href="youtube.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="border-red-500 hover:border-red-700 text-red-500 hover:text-red-700 font-bold py-2 px-4 rounded w-full border-2"
-        >
-          Assistir no YouTube
-        </a>
+        {
+          enableInstagramButton && (
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border-pink-500 hover:border-pink-700 text-pink-500 hover:text-pink-700 font-bold py-2 px-4 rounded w-full border-2"
+            >
+              Assistir no Instagram
+            </a>
+          )
+        }
+        {
+          enableYouTubeButton && (
+            <a
+              href="youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border-red-500 hover:border-red-700 text-red-500 hover:text-red-700 font-bold py-2 px-4 rounded w-full border-2"
+            >
+              Assistir no YouTube
+            </a>
+          )
+        }
       </footer>
     </section>
   </article>

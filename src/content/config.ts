@@ -46,6 +46,8 @@ const totemCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     order: z.number(),
+    youTubeUrl: z.optional(z.string().url()),
+    instagramUrl: z.optional(z.string().url()),
   }),
 });
 

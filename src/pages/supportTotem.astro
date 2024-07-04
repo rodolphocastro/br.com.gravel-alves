@@ -25,6 +25,8 @@ const allTotemInfo = await getCollection("supportTotem");
           <LinkItem
             title={link.data.title}
             contentId={link.data.order.toString()}
+            youTubeUrl={link.data.youTubeUrl}
+            instagramUrl={link.data.instagramUrl}
           />
         ))
     }
