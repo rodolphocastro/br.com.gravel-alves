@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { featureFlags } from "../utils";
 
 const bio = await getCollection("bio");
 const profile = bio[0];
@@ -23,8 +24,14 @@ const { Content } = await profile.render();
     <li>
       <a class="block px-2" href="/routes">Rotas</a>
     </li>
-    <li>
-      <a class="block px-2" href="/supportTotem">Totem de Apoio</a>
-    </li>
+    {
+      featureFlags.showTotem && (
+        <li>
+          <a class="block px-2" href="/supportTotem">
+            Totem de Apoio
+          </a>
+        </li>
+      )
+    }
   </ul>
 </nav>
