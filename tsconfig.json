@@ -5,6 +5,10 @@
     "jsxImportSource": "solid-js"
   },
   "exclude": [
-    "public/**"
+    "public/**",
+    "dist/**",
+    "coverage/**",
+    "vitest.config.ts",
+    "src/images/**"
   ]
 }
