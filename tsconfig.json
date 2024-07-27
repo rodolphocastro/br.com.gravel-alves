@@ -4,5 +4,11 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js"
   },
-  "exclude": ["public/**", "dist/**", "coverage/**", "vitest.config.ts"]
+  "exclude": [
+    "public/**",
+    "dist/**",
+    "coverage/**",
+    "vitest.config.ts",
+    "src/images/**"
+  ]
 }
