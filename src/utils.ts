@@ -36,7 +36,6 @@ export enum SocialMedia {
   whatsapp = "whatsapp",
   telegram = "telegram",
   strava = "strava",
-  komoot = "komoot",
   email = "email"
 }
 
