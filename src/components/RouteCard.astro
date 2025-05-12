@@ -10,22 +10,13 @@ interface Props {
   description: string;
   rating: number;
   stravaUrl: string;
-  komootUrl: string;
   gpxFile: string;
   km: number;
   altGain: number;
 }
 
-const {
-  title,
-  description,
-  rating,
-  stravaUrl,
-  komootUrl,
-  km,
-  altGain,
-  gpxFile,
-} = Astro.props;
+const { title, description, rating, stravaUrl, km, altGain, gpxFile } =
+  Astro.props;
 ---
 
 <article
@@ -85,14 +76,6 @@ const {
         class="border-orange-500 hover:border-orange-700 text-orange-500 hover:text-orange-700 font-bold py-2 px-4 rounded w-full border-2"
       >
         Visualizar (Strava)
-      </a>
-      <a
-        href={komootUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="border-green-500 hover:border-green-700 text-green-500 hover:text-green-700 font-bold py-2 px-4 rounded w-full border-2"
-      >
-        Visualizar (Komoot)
       </a>
     </footer>
   </div>
