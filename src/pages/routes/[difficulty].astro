@@ -1,0 +1,24 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { difficulty: "iniciante" } },
+    { params: { difficulty: "intermediario" } },
+    { params: { difficulty: "avancado" } },
+    { params: { difficulty: "desafio" } },
+    { params: { difficulty: "epico" } },
+    { params: { difficulty: "cicloviagem" } },
+  ];
+}
+
+const { difficulty } = Astro.params;
+---
+
+<SiteLayout>
+  <div>
+    <p>
+      Dificuldade selecionada: {difficulty}
+    </p>
+  </div>
+</SiteLayout>
