@@ -18,7 +18,7 @@ export const difficulties: { [key: number]: string } = {
 export function getDifficultyFromRating(rating: string): number {
   const result = Object.keys(difficulties).find(
     (key) =>
-      difficulties[key]
+      difficulties[parseInt(key)]
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "") ===
