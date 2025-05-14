@@ -1,5 +1,5 @@
 import { expect, it, suite } from 'vitest';
-import { convertDifficultyToRating, difficulties, featureFlags, generateGpxLinkForStrava, getGpxUrl } from "../src/utils";
+import { convertDifficultyToRating, difficulties, featureFlags, generateGpxLinkForStrava, getDifficultyFromRating, getGpxUrl } from "../src/utils";
 
 suite('rating conversion', () => {
   it('should round negative out of bounds to the lowest rating', () =>
@@ -10,6 +10,13 @@ suite('rating conversion', () => {
 
   it('should default to the lowest if null', () =>
     expect(convertDifficultyToRating(null!)).toBe(difficulties[1]))
+
+  it('should be retrivable from a human readable string', () => {
+    const rating = "épico"
+    const got = getDifficultyFromRating(rating)
+    expect(got).not.toBeNull()
+    expect(got).toBe(5)
+  })
 
 });
 

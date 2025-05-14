@@ -11,6 +11,26 @@ export const difficulties: { [key: number]: string } = {
 };
 
 /**
+ * gets a difficulty rating from its string, normalized and ignoring cases.
+ * @param rating the string representing the difficulty rating
+ * @returns the key (int) that matches this rating, or -1 if not found
+ */
+export function getDifficultyFromRating(rating: string): number {
+  const result = Object.keys(difficulties).find(
+    (key) =>
+      difficulties[parseInt(key)]
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") ===
+      rating
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, ""),
+  );
+  return result ? parseInt(result) : -1;
+}
+
+/**
  * Social Medias that have icons supported by the portal.
  */
 export enum SocialMedia {
