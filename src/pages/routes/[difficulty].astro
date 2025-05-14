@@ -1,5 +1,11 @@
 ---
+import { getCollection } from "astro:content";
 import SiteLayout from "../../layouts/SiteLayout.astro";
+import {
+  getDifficultyFromRating,
+  convertDifficultyToRating,
+} from "../../utils";
+import RouteCard from "../../components/RouteCard.astro";
 
 export function getStaticPaths() {
   return [
@@ -13,12 +19,34 @@ export function getStaticPaths() {
 }
 
 const { difficulty } = Astro.params;
+const difficultyRating = getDifficultyFromRating(difficulty);
+const difficultyFriendlyName = convertDifficultyToRating(difficultyRating);
+const routes = await getCollection("routes", (route) => {
+  return route.data.rating === difficultyRating;
+});
 ---
 
 <SiteLayout>
-  <div>
-    <p>
-      Dificuldade selecionada: {difficulty}
-    </p>
+  <h2 class="text-2xl font-bold text-center mb-4">
+    Dificuldade: {difficultyFriendlyName}
+  </h2>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[640px] w-full px-4 py-2"
+  >
+    {
+      routes
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+        .map((p) => (
+          <RouteCard
+            title={p.data.title}
+            description={p.data.description}
+            rating={p.data.rating}
+            stravaUrl={p.data.stravaUrl}
+            km={p.data.km}
+            altGain={p.data.altGain}
+            gpxFile={p.data.gpxFile}
+          />
+        ))
+    }
   </div>
 </SiteLayout>
