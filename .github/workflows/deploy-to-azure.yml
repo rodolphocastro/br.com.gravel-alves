@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: Production
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 0 # needed due to sonarqube analysis
     
